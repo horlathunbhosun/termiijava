@@ -6,12 +6,26 @@ import tech.olatunbosun.constants.UrlApi;
 import java.util.HashMap;
 import java.util.List;
 
-public class MessagingApi {
+public class Messaging {
 
     private ApiCall apiCall;
 
+    // https://developer.termii.com/sender-id
+    //get all senderId
+    public JSONObject getAllSenderId() {
+        apiCall = new ApiCall(UrlApi.GET_SENDER_ID_URL, null);
+        return apiCall.makeGetRequest();
+    }
+
+    // request for senderId
+    public JSONObject requestSenderId(HashMap<String, Object> queryMap) {
+        apiCall = new ApiCall(UrlApi.REQUEST_SENDER_ID_URL, queryMap);
+        return apiCall.makePostRequest();
+    }
+
 
     //send message
+    //https://developer.termii.com/messaging-api
     public JSONObject sendMessage(HashMap<String, Object> queryMap) {
         Object to = queryMap.get("to");
         if (to instanceof List) {
@@ -60,6 +74,20 @@ public class MessagingApi {
             return errorJson;
         }
         return null;
+    }
+
+    //send message number api endpoint
+    //https://developer.termii.com/number
+    public JSONObject sendMessageNumberApi(HashMap<String, Object> queryMap) {
+        apiCall = new ApiCall(UrlApi.SEND_NUMBER_MESSAGE_URL, queryMap);
+        return apiCall.makePostRequest();
+    }
+
+    //send message template api endpoint
+    //https://developer.termii.com/templates
+    public JSONObject sendMessageTemplateApi(HashMap<String, Object> queryMap) {
+        apiCall = new ApiCall(UrlApi.SEND_TEMPLATE_MESSAGE_URL, queryMap);
+        return apiCall.makePostRequest();
     }
 
 

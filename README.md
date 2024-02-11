@@ -33,24 +33,31 @@ To facilitate quick prototyping and testing, TermiiJava opens up a wide range of
 
 ## Usage
 #### To get SenderId
+
 ```java
-    SenderID senderID = new SenderID(); 
-    JSONObject jsonObject = senderID.getAllSenderId();
+    import tech.olatunbosun.termii.Messaging;
+
+    Messaging messaging = new Messaging();
+    JSONObject jsonObject = messaging.getAllSenderId();
     System.out.println(jsonObject.toString());
 ```
 #### To create a new SenderId
 ```java
+    import tech.olatunbosun.termii.Messaging;
+
     HashMap<String, Object> dataMap = new HashMap<>();
     dataMap.put("sender_id", "Your SenderId");
     dataMap.put("usecase", "Your Usecase");
     dataMap.put("company", "Your company");
-            
-    SenderID senderID = new SenderID(); 
-    JSONObject jsonObject = senderID.requestSenderId(dataMap);
+
+    Messaging messaging = new Messaging(); 
+    JSONObject jsonObject = messaging.requestSenderId(dataMap);
     System.out.println(jsonObject.toString());
 ```
 #### Send SMS
 ```java
+    import tech.olatunbosun.termii.Messaging;
+
     HashMap<String, Object> dataMap = new HashMap<>();
     dataMap.put("to", "Your Recipient Number");
     dataMap.put("from", "SenderID");
@@ -63,12 +70,14 @@ To facilitate quick prototyping and testing, TermiiJava opens up a wide range of
     List<String> numbers = new ArrayList<>();
     dataMap.put("to", numbers);
     //note that the maximum number of recipients is 100 for this api
-    MessagingApi messagingApi = new MessagingApi();
-    JSONObject messageObject = messagingApi.sendMessage(dataMap);
+    Messaging messaging = new Messaging();
+    JSONObject messageObject = messaging.sendMessage(dataMap);
     System.out.println(messageObject.toString());
 ```
 #### Send Bulk sms
 ```java
+    import tech.olatunbosun.termii.Messaging;
+
     HashMap<String, Object> dataMap = new HashMap<>();
     dataMap.put("from", "SenderID");
     dataMap.put("sms", "Your message");
@@ -77,10 +86,43 @@ To facilitate quick prototyping and testing, TermiiJava opens up a wide range of
     List<String> numbers = new ArrayList<>();
     dataMap.put("to", numbers);
     //note that the maximum number of recipients is 10000 for this api
-    MessagingApi messagingApi = new MessagingApi();
-    JSONObject messageObject = messagingApi.sendBulkMessage(dataMap);
+    Messaging messaging = new Messaging();
+    JSONObject messageObject = messaging.sendBulkMessage(dataMap);
     System.out.println(messageObject.toString());
 ```
+#### Send Number Message
+```java
+    import tech.olatunbosun.termii.Messaging;
+
+    HashMap<String, Object> dataMap = new HashMap<>();
+    dataMap.put("to", "Your Recipient Number");
+    dataMap.put("sms", "Your message");
+    Messaging messaging = new Messaging();
+    JSONObject numberMessageObject = messaging.sendMessage(dataMap);
+    System.out.println(numberMessageObject.toString());
+```
+#### Send Template Message
+```java
+    import tech.olatunbosun.termii.Messaging;
+
+    HashMap<String, Object> dataMap = new HashMap<>();
+    dataMap.put("phone_number", "Your Recipient Number");
+    dataMap.put("template_id", "Your Template Id");
+    dataMap.put("device_id", "Your Device Id");
+    
+    HashMap<String, Object> templateData = new HashMap<>();
+    templateData.put("product_name", "Your Name");
+    templateData.put("otp", "Your Number");
+    templateData.put("expiry_time", "Your Time");
+    dataMap.put("data", templateData);
+
+    Messaging messaging = new Messaging();
+    JSONObject templateMessageObject = messaging.sendMessage(dataMap);
+    System.out.println(templateMessageObject.toString());
+```
+
+
+
 ## Note
 - The Termii API requires an API key for authentication. You can get your API key by signing up on the [Termii website](https://account.termii.com/signup) and creating a new project.
 - You need to create a json file in the root directory of your project and name it `configKey.json` and add your API key to it like this:
