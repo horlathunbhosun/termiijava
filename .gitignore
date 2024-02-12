@@ -36,3 +36,4 @@ build/
 configKey.json
 ### Mac OS ###
 .DS_Store
+.idea

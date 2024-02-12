@@ -30,7 +30,14 @@ To facilitate quick prototyping and testing, TermiiJava opens up a wide range of
 - On Intellij IDEA: File -> Project Structure -> Modules -> Dependencies Tab -> Add -> JARs or Directories -> Attach jar
 - On Netbeans: Project properties -> Libraries -> Compile -> ADD JAR/folder -> Add Jar
 - On Eclipse: Project properties -> Java Build Path -> Libraries -> Add External JARs -> Add Jar
-
+## Note
+- The Termii API requires an API key for authentication. You can get your API key by signing up on the [Termii website](https://account.termii.com/signup) and creating a new project.
+- You need to create a json file in the root directory of your project and name it `configKey.json` and add your API key to it like this:
+```json
+{
+  "API_KEY": "Your Termii API Key"
+}
+```
 ## Usage
 #### To get SenderId
 
@@ -59,16 +66,19 @@ To facilitate quick prototyping and testing, TermiiJava opens up a wide range of
     import tech.olatunbosun.termii.Messaging;
 
     HashMap<String, Object> dataMap = new HashMap<>();
-    dataMap.put("to", "Your Recipient Number");
     dataMap.put("from", "SenderID");
     dataMap.put("sms", "Your message");
     dataMap.put("type", "message Type");
     dataMap.put("channel", "your channel");
     
-    //in case you want to send message to multiple recipients
-    your dataMap.put("to", "Your Recipient Number");  would be an List of numbers like this
+    //single recipient
+    dataMap.put("to", "Your Recipient Number");
+
+    //multiple recipients
+    would be an List of numbers like this
     List<String> numbers = new ArrayList<>();
     dataMap.put("to", numbers);
+    
     //note that the maximum number of recipients is 100 for this api
     Messaging messaging = new Messaging();
     JSONObject messageObject = messaging.sendMessage(dataMap);
@@ -123,14 +133,7 @@ To facilitate quick prototyping and testing, TermiiJava opens up a wide range of
 
 
 
-## Note
-- The Termii API requires an API key for authentication. You can get your API key by signing up on the [Termii website](https://account.termii.com/signup) and creating a new project.
-- You need to create a json file in the root directory of your project and name it `configKey.json` and add your API key to it like this:
-```json
-{
-  "API_KEY": "Your API Key
-}
-```
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

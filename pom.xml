@@ -13,6 +13,17 @@
     <description>A Java based API wrapper for termii api</description>
     <url>https://github.com/horlathunbhosun/termiiJava</url>
 
+
+    <scm>
+        <connection>scm:git:https://github.com/horlathunbhosun/termiiJava.git</connection>
+        <tag>HEAD</tag>
+        <url>https://github.com/horlathunbhosun/termiiJava</url>
+    </scm>
+
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+    </build>
+
     <dependencies>
 
 
@@ -29,6 +40,18 @@
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20240205</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>5.8.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.10.0</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
