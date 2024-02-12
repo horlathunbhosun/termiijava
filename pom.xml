@@ -7,7 +7,7 @@
     <groupId>tech.olatunbosun</groupId>
     <artifactId>termiiJava</artifactId>
     <packaging>jar</packaging>
-    <version>0.1-BETA</version>
+    <version>1.0.0</version>
 
     <name>TermiiJava</name>
     <description>A Java based API wrapper for termii api</description>
