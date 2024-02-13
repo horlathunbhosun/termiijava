@@ -1,4 +1,4 @@
-package tech.olatunbosun;
+package main.tech.olatunbosun;
 
 public class Main {
     public static void main(String[] args) {

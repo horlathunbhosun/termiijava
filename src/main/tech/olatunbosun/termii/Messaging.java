@@ -1,7 +1,7 @@
-package tech.olatunbosun.termii;
+package main.tech.olatunbosun.termii;
 
 import org.json.JSONObject;
-import tech.olatunbosun.constants.UrlApi;
+import main.tech.olatunbosun.constants.UrlApi;
 
 import java.util.HashMap;
 import java.util.List;

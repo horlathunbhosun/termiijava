@@ -1,4 +1,4 @@
-package tech.olatunbosun.termii;
+package main.tech.olatunbosun.termii;
 
 
 import org.apache.http.HttpEntity;

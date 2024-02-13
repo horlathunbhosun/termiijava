@@ -1,4 +1,4 @@
-package tech.olatunbosun.termii;
+package main.tech.olatunbosun.termii;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -13,7 +13,6 @@ import org.json.JSONObject;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 public class ApiCall {

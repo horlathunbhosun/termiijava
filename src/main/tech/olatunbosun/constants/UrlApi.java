@@ -1,4 +1,4 @@
-package tech.olatunbosun.constants;
+package main.tech.olatunbosun.constants;
 
 
 // This class is used to store the base url for the api and other endpoints

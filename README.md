@@ -42,93 +42,162 @@ To facilitate quick prototyping and testing, TermiiJava opens up a wide range of
 #### To get SenderId
 
 ```java
-    import tech.olatunbosun.termii.Messaging;
+    import termii.main.tech.olatunbosun.Messaging;
 
-    Messaging messaging = new Messaging();
-    JSONObject jsonObject = messaging.getAllSenderId();
-    System.out.println(jsonObject.toString());
+Messaging messaging = new Messaging();
+JSONObject jsonObject = messaging.getAllSenderId();
+    System.out.
+
+println(jsonObject.toString());
 ```
 #### To create a new SenderId
+
 ```java
-    import tech.olatunbosun.termii.Messaging;
+    import termii.main.tech.olatunbosun.Messaging;
 
-    HashMap<String, Object> dataMap = new HashMap<>();
-    dataMap.put("sender_id", "Your SenderId");
-    dataMap.put("usecase", "Your Usecase");
-    dataMap.put("company", "Your company");
+HashMap<String, Object> dataMap = new HashMap<>();
+    dataMap.
 
-    Messaging messaging = new Messaging(); 
-    JSONObject jsonObject = messaging.requestSenderId(dataMap);
-    System.out.println(jsonObject.toString());
+put("sender_id","Your SenderId");
+    dataMap.
+
+put("usecase","Your Usecase");
+    dataMap.
+
+put("company","Your company");
+
+Messaging messaging = new Messaging();
+JSONObject jsonObject = messaging.requestSenderId(dataMap);
+    System.out.
+
+println(jsonObject.toString());
 ```
 #### Send SMS
+
 ```java
-    import tech.olatunbosun.termii.Messaging;
+    import termii.main.tech.olatunbosun.Messaging;
 
-    HashMap<String, Object> dataMap = new HashMap<>();
-    dataMap.put("from", "SenderID");
-    dataMap.put("sms", "Your message");
-    dataMap.put("type", "message Type");
-    dataMap.put("channel", "your channel");
-    
-    //single recipient
-    dataMap.put("to", "Your Recipient Number");
+HashMap<String, Object> dataMap = new HashMap<>();
+    dataMap.
 
-    //multiple recipients
-    would be an List of numbers like this
-    List<String> numbers = new ArrayList<>();
-    dataMap.put("to", numbers);
-    
-    //note that the maximum number of recipients is 100 for this api
-    Messaging messaging = new Messaging();
-    JSONObject messageObject = messaging.sendMessage(dataMap);
-    System.out.println(messageObject.toString());
+put("from","SenderID");
+    dataMap.
+
+put("sms","Your message");
+    dataMap.
+
+put("type","message Type");
+    dataMap.
+
+put("channel","your channel");
+
+//single recipient
+    dataMap.
+
+put("to","Your Recipient Number");
+
+//multiple recipients
+would be
+an List
+of numbers
+like this
+List<String> numbers = new ArrayList<>();
+    dataMap.
+
+put("to",numbers);
+
+//note that the maximum number of recipients is 100 for this api
+Messaging messaging = new Messaging();
+JSONObject messageObject = messaging.sendMessage(dataMap);
+    System.out.
+
+println(messageObject.toString());
 ```
 #### Send Bulk sms
-```java
-    import tech.olatunbosun.termii.Messaging;
 
-    HashMap<String, Object> dataMap = new HashMap<>();
-    dataMap.put("from", "SenderID");
-    dataMap.put("sms", "Your message");
-    dataMap.put("type", "message Type");
-    dataMap.put("channel", "your channel");
-    List<String> numbers = new ArrayList<>();
-    dataMap.put("to", numbers);
-    //note that the maximum number of recipients is 10000 for this api
-    Messaging messaging = new Messaging();
-    JSONObject messageObject = messaging.sendBulkMessage(dataMap);
-    System.out.println(messageObject.toString());
+```java
+    import termii.main.tech.olatunbosun.Messaging;
+
+HashMap<String, Object> dataMap = new HashMap<>();
+    dataMap.
+
+put("from","SenderID");
+    dataMap.
+
+put("sms","Your message");
+    dataMap.
+
+put("type","message Type");
+    dataMap.
+
+put("channel","your channel");
+
+List<String> numbers = new ArrayList<>();
+    dataMap.
+
+put("to",numbers);
+
+//note that the maximum number of recipients is 10000 for this api
+Messaging messaging = new Messaging();
+JSONObject messageObject = messaging.sendBulkMessage(dataMap);
+    System.out.
+
+println(messageObject.toString());
 ```
 #### Send Number Message
-```java
-    import tech.olatunbosun.termii.Messaging;
 
-    HashMap<String, Object> dataMap = new HashMap<>();
-    dataMap.put("to", "Your Recipient Number");
-    dataMap.put("sms", "Your message");
-    Messaging messaging = new Messaging();
-    JSONObject numberMessageObject = messaging.sendMessage(dataMap);
-    System.out.println(numberMessageObject.toString());
+```java
+    import termii.main.tech.olatunbosun.Messaging;
+
+HashMap<String, Object> dataMap = new HashMap<>();
+    dataMap.
+
+put("to","Your Recipient Number");
+    dataMap.
+
+put("sms","Your message");
+
+Messaging messaging = new Messaging();
+JSONObject numberMessageObject = messaging.sendMessage(dataMap);
+    System.out.
+
+println(numberMessageObject.toString());
 ```
 #### Send Template Message
+
 ```java
-    import tech.olatunbosun.termii.Messaging;
+    import termii.main.tech.olatunbosun.Messaging;
 
-    HashMap<String, Object> dataMap = new HashMap<>();
-    dataMap.put("phone_number", "Your Recipient Number");
-    dataMap.put("template_id", "Your Template Id");
-    dataMap.put("device_id", "Your Device Id");
-    
-    HashMap<String, Object> templateData = new HashMap<>();
-    templateData.put("product_name", "Your Name");
-    templateData.put("otp", "Your Number");
-    templateData.put("expiry_time", "Your Time");
-    dataMap.put("data", templateData);
+HashMap<String, Object> dataMap = new HashMap<>();
+    dataMap.
 
-    Messaging messaging = new Messaging();
-    JSONObject templateMessageObject = messaging.sendMessage(dataMap);
-    System.out.println(templateMessageObject.toString());
+put("phone_number","Your Recipient Number");
+    dataMap.
+
+put("template_id","Your Template Id");
+    dataMap.
+
+put("device_id","Your Device Id");
+
+HashMap<String, Object> templateData = new HashMap<>();
+    templateData.
+
+put("product_name","Your Name");
+    templateData.
+
+put("otp","Your Number");
+    templateData.
+
+put("expiry_time","Your Time");
+    dataMap.
+
+put("data",templateData);
+
+Messaging messaging = new Messaging();
+JSONObject templateMessageObject = messaging.sendMessage(dataMap);
+    System.out.
+
+println(templateMessageObject.toString());
 ```
 
 
