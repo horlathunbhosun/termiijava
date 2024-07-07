@@ -21,17 +21,6 @@ public class ApiKey {
     private String API_KEY;
 
     void initializeApiKey() throws FileNotFoundException {
-//        JSONObject apiKeyObject;
-//        String fileData = "";
-//        File file = new File("configKey.json");
-//        Scanner scanner = new Scanner(file);
-//
-//        fileData = scanner.nextLine();
-//        apiKeyObject = new JSONObject(fileData);
-//
-//        this.API_KEY = apiKeyObject.getString("API_KEY");
-
-
             File file = new File("configKey.json");
             Scanner scanner = new Scanner(file);
             StringBuilder fileData = new StringBuilder();
