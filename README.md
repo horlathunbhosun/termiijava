@@ -97,14 +97,11 @@ put("channel","your channel");
 put("to","Your Recipient Number");
 
 //multiple recipients
-would be
-an List
-of numbers
-like this
-List<String> numbers = new ArrayList<>();
-    dataMap.
+would be a List of numbers like this
 
-put("to",numbers);
+List<String> numbers = new ArrayList<>();
+
+dataMap.put("to",numbers);
 
 //note that the maximum number of recipients is 100 for this api
 Messaging messaging = new Messaging();
